@@ -72,167 +72,185 @@
     }
 
     /* ===== CAROUSEL SECTION ===== */
-    .carousel-section {
-      background: var(--muted);
-      padding: 4rem 2rem;
-      width: 100%;
+    .drw-carousel-section {
+      background: var(--muted) !important;
+      padding: 4rem 2rem !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
+    .drw-section-header {
+      text-align: center !important;
+      margin-bottom: 3rem !important;
     }
 
-    .section-header h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1rem;
+    .drw-section-header h2 {
+      font-size: 2rem !important;
+      font-weight: 700 !important;
+      color: var(--primary) !important;
+      margin-bottom: 1rem !important;
     }
 
-    .section-header p {
-      color: var(--muted-foreground);
-      max-width: 600px;
-      margin: 0 auto;
+    .drw-section-header p {
+      color: var(--muted-foreground) !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
     }
 
-    .carousel-wrapper {
-      position: relative;
-      max-width: 100%;
-      overflow: hidden;
+    .drw-carousel-wrapper {
+      position: relative !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      padding: 0 60px !important;
     }
 
-    .carousel-container {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding: 1rem 0;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    .drw-carousel-container {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 1rem !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      padding: 1rem 0 !important;
+      scroll-snap-type: x mandatory !important;
+      scroll-behavior: smooth !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
     }
 
-    .carousel-container::-webkit-scrollbar {
-      display: none;
+    .drw-carousel-container::-webkit-scrollbar {
+      display: none !important;
     }
 
-    .carousel-item {
-      flex: 0 0 300px;
-      scroll-snap-align: start;
-      background: var(--card);
-      border: 2px solid var(--border);
-      border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      height: 240px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .drw-carousel-item {
+      flex: 0 0 300px !important;
+      min-width: 300px !important;
+      max-width: 300px !important;
+      scroll-snap-align: start !important;
+      background: var(--card) !important;
+      border: 2px solid var(--border) !important;
+      border-radius: 0.75rem !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+      transition: transform 0.3s, box-shadow 0.3s !important;
+      height: 240px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
 
-    .carousel-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    .drw-carousel-item:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
     }
 
-    .carousel-item img {
-      max-width: 95%;
-      max-height: 200px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      display: block;
-      margin: 0 auto;
+    .drw-carousel-item img {
+      max-width: 95% !important;
+      max-height: 200px !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 0.5rem !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+      display: block !important;
+      margin: 0 auto !important;
     }
 
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      background: var(--primary);
-      border: 2px solid var(--secondary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .drw-carousel-nav {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 48px !important;
+      height: 48px !important;
+      background: var(--primary) !important;
+      border: 2px solid var(--secondary) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      z-index: 10 !important;
+      transition: background 0.3s, transform 0.3s !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .carousel-nav:hover {
-      background: var(--secondary);
-      transform: translateY(-50%) scale(1.1);
+    .drw-carousel-nav:hover {
+      background: var(--secondary) !important;
+      transform: translateY(-50%) scale(1.1) !important;
     }
 
-    .carousel-nav:hover svg {
-      stroke: var(--primary);
+    .drw-carousel-nav:hover svg {
+      stroke: var(--primary) !important;
     }
 
-    .carousel-nav svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--secondary);
-      stroke-width: 2;
-      fill: none;
+    .drw-carousel-nav svg {
+      width: 24px !important;
+      height: 24px !important;
+      stroke: var(--secondary) !important;
+      stroke-width: 2 !important;
+      fill: none !important;
     }
 
-    .carousel-nav.prev {
-      left: 10px;
+    .drw-carousel-nav.drw-prev {
+      left: 5px !important;
     }
 
-    .carousel-nav.next {
-      right: 10px;
+    .drw-carousel-nav.drw-next {
+      right: 5px !important;
     }
 
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
+    .drw-carousel-dots {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      margin-top: 1.5rem !important;
+      flex-wrap: wrap !important;
     }
 
-    .carousel-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+    .drw-carousel-dot {
+      width: 12px !important;
+      height: 12px !important;
+      border-radius: 50% !important;
+      background: var(--border) !important;
+      cursor: pointer !important;
+      transition: background 0.3s, transform 0.3s !important;
+      border: none !important;
+      padding: 0 !important;
     }
 
-    .carousel-dot:hover,
-    .carousel-dot.active {
-      background: var(--secondary);
-      transform: scale(1.2);
+    .drw-carousel-dot:hover,
+    .drw-carousel-dot.drw-active {
+      background: var(--secondary) !important;
+      transform: scale(1.2) !important;
     }
 
     @media (max-width: 768px) {
-      .carousel-nav {
-        width: 40px;
-        height: 40px;
+      .drw-carousel-wrapper {
+        padding: 0 50px !important;
       }
 
-      .carousel-nav svg {
-        width: 20px;
-        height: 20px;
+      .drw-carousel-nav {
+        width: 40px !important;
+        height: 40px !important;
       }
 
-      .carousel-item {
-        flex: 0 0 260px;
+      .drw-carousel-nav svg {
+        width: 20px !important;
+        height: 20px !important;
       }
 
-      .carousel-item img {
-        height: 180px;
+      .drw-carousel-item {
+        flex: 0 0 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+      }
+
+      .drw-carousel-item img {
+        max-height: 180px !important;
       }
     }
 
@@ -821,68 +839,68 @@
 </section>
 
 <!-- ===== CAROUSEL SECTION ===== -->
-<section class="carousel-section">
+<section class="drw-carousel-section">
   <div class="container">
-    <div class="section-header">
+    <div class="drw-section-header">
       <h2>Visuell-konnektives Lernen</h2>
       <p>Im Grundkurs 2026 kombinieren wir unsere neue Lernstrategie mit unserem modularen Erfolgssystem.</p>
     </div>
-    <div class="carousel-wrapper">
+    <div class="drw-carousel-wrapper">
       <!-- Navigation Buttons -->
-      <button class="carousel-nav prev" onclick="scrollCarousel(-1)" aria-label="Vorheriges Bild">
+      <button class="drw-carousel-nav drw-prev" onclick="drwScrollCarousel(-1)" aria-label="Vorheriges Bild">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
-      <button class="carousel-nav next" onclick="scrollCarousel(1)" aria-label="Nächstes Bild">
+      <button class="drw-carousel-nav drw-next" onclick="drwScrollCarousel(1)" aria-label="Nächstes Bild">
         <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
 
-      <div class="carousel-container" id="schaubildCarousel">
-        <div class="carousel-item">
+      <div class="drw-carousel-container" id="drwSchaubildCarousel">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild1-1.png" alt="Schaubild 1 - Grundlagen des Strafrechts">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild2.png" alt="Schaubild 2 - Vorsatz & Fahrlässigkeit">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild3-1.png" alt="Schaubild 3 - Kausalität">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild4-1.png" alt="Schaubild 4 - Objektive Zurechnung">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild5.png" alt="Schaubild 5 - Rechtswidrigkeit">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild6.png" alt="Schaubild 6 - Schuld">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild7.png" alt="Schaubild 7 - Notwehr">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild8.png" alt="Schaubild 8 - Notstand">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild9.png" alt="Schaubild 9 - Versuch">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild10.png" alt="Schaubild 10 - Rücktritt">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild11.png" alt="Schaubild 11 - Täterschaft">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild12.png" alt="Schaubild 12 - Teilnahme">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild13.png" alt="Schaubild 13 - Diebstahl">
         </div>
-        <div class="carousel-item">
+        <div class="drw-carousel-item">
           <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Bild14.png" alt="Schaubild 14 - Betrug">
         </div>
       </div>
 
       <!-- Dot Navigation -->
-      <div class="carousel-dots" id="carouselDots"></div>
+      <div class="drw-carousel-dots" id="drwCarouselDots"></div>
     </div>
   </div>
 </section>
@@ -1085,66 +1103,81 @@
 
 <!-- ===== CAROUSEL SCRIPT ===== -->
 <script>
-  // Carousel functionality
-  const carousel = document.getElementById('schaubildCarousel');
-  const dotsContainer = document.getElementById('carouselDots');
-  const items = carousel.querySelectorAll('.carousel-item');
-  const itemWidth = 316; // 300px + 16px gap
-  let currentIndex = 0;
+(function() {
+  // Carousel functionality - wrapped in IIFE to avoid global conflicts
+  const drwCarousel = document.getElementById('drwSchaubildCarousel');
+  const drwDotsContainer = document.getElementById('drwCarouselDots');
+  
+  if (!drwCarousel || !drwDotsContainer) {
+    console.error('Carousel elements not found');
+    return;
+  }
+  
+  const drwItems = drwCarousel.querySelectorAll('.drw-carousel-item');
+  const drwItemWidth = 316; // 300px + 16px gap
+  let drwCurrentIndex = 0;
 
   // Create dots
-  items.forEach((_, index) => {
+  drwItems.forEach(function(_, index) {
     const dot = document.createElement('span');
-    dot.classList.add('carousel-dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => scrollToIndex(index));
-    dotsContainer.appendChild(dot);
+    dot.classList.add('drw-carousel-dot');
+    if (index === 0) dot.classList.add('drw-active');
+    dot.addEventListener('click', function() { drwScrollToIndex(index); });
+    drwDotsContainer.appendChild(dot);
   });
 
-  function scrollCarousel(direction) {
-    const maxIndex = items.length - 1;
-    currentIndex += direction;
+  // Make scroll function globally accessible for onclick
+  window.drwScrollCarousel = function(direction) {
+    const maxIndex = drwItems.length - 1;
+    drwCurrentIndex += direction;
     
-    if (currentIndex < 0) currentIndex = maxIndex;
-    if (currentIndex > maxIndex) currentIndex = 0;
+    if (drwCurrentIndex < 0) drwCurrentIndex = maxIndex;
+    if (drwCurrentIndex > maxIndex) drwCurrentIndex = 0;
     
-    scrollToIndex(currentIndex);
-  }
+    drwScrollToIndex(drwCurrentIndex);
+  };
 
-  function scrollToIndex(index) {
-    currentIndex = index;
-    carousel.scrollTo({
-      left: index * itemWidth,
+  function drwScrollToIndex(index) {
+    drwCurrentIndex = index;
+    drwCarousel.scrollTo({
+      left: index * drwItemWidth,
       behavior: 'smooth'
     });
-    updateDots();
+    drwUpdateDots();
   }
 
-  function updateDots() {
-    const dots = dotsContainer.querySelectorAll('.carousel-dot');
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentIndex);
+  function drwUpdateDots() {
+    const dots = drwDotsContainer.querySelectorAll('.drw-carousel-dot');
+    dots.forEach(function(dot, index) {
+      if (index === drwCurrentIndex) {
+        dot.classList.add('drw-active');
+      } else {
+        dot.classList.remove('drw-active');
+      }
     });
   }
 
   // Update dots on scroll
-  carousel.addEventListener('scroll', () => {
-    const scrollLeft = carousel.scrollLeft;
-    const newIndex = Math.round(scrollLeft / itemWidth);
-    if (newIndex !== currentIndex) {
-      currentIndex = newIndex;
-      updateDots();
+  drwCarousel.addEventListener('scroll', function() {
+    const scrollLeft = drwCarousel.scrollLeft;
+    const newIndex = Math.round(scrollLeft / drwItemWidth);
+    if (newIndex !== drwCurrentIndex && newIndex >= 0 && newIndex < drwItems.length) {
+      drwCurrentIndex = newIndex;
+      drwUpdateDots();
     }
   });
 
   // Auto-scroll every 4 seconds
-  let autoScrollInterval = setInterval(() => scrollCarousel(1), 4000);
+  let drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
 
   // Pause auto-scroll on hover
-  carousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-  carousel.addEventListener('mouseleave', () => {
-    autoScrollInterval = setInterval(() => scrollCarousel(1), 4000);
+  drwCarousel.addEventListener('mouseenter', function() { 
+    clearInterval(drwAutoScrollInterval); 
   });
+  drwCarousel.addEventListener('mouseleave', function() {
+    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+  });
+})();
 </script>
 
 <!-- ===== COUNTDOWN SCRIPT ===== -->
