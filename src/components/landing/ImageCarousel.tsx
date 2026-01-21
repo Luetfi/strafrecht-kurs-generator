@@ -7,17 +7,27 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { ImageIcon } from "lucide-react";
+
+import bild1 from "@/assets/carousel/bild1.png";
+import bild2 from "@/assets/carousel/bild2.png";
+import bild3 from "@/assets/carousel/bild3.png";
+import bild4 from "@/assets/carousel/bild4.png";
+import bild5 from "@/assets/carousel/bild5.png";
+import bild6 from "@/assets/carousel/bild6.png";
+import bild7 from "@/assets/carousel/bild7.png";
+import bild13 from "@/assets/carousel/bild13.png";
+import bild14 from "@/assets/carousel/bild14.png";
 
 const carouselSlides = [
-  { id: 1, title: "Schaubild: Zueignung", description: "Visuelle Darstellung der Zueignungsdelikte" },
-  { id: 2, title: "Schaubild: Strafrecht AT", description: "Übersicht Allgemeiner Teil" },
-  { id: 3, title: "Schaubild: Vorsatz & Fahrlässigkeit", description: "Abgrenzung und Struktur" },
-  { id: 4, title: "Schaubild: Rechtfertigungsgründe", description: "Notwehr, Notstand & mehr" },
-  { id: 5, title: "Schaubild: Irrtümer", description: "Tatbestands- und Verbotsirrtum" },
-  { id: 6, title: "Schaubild: Versuch & Rücktritt", description: "Prüfungsschema und Fallgruppen" },
-  { id: 7, title: "Schaubild: Täterschaft & Teilnahme", description: "Abgrenzung und Aufbau" },
-  { id: 8, title: "Schaubild: Körperverletzungsdelikte", description: "BT I Übersicht" },
+  { id: 1, src: bild1, alt: "Schaubild 1 - Strafrecht Übersicht" },
+  { id: 2, src: bild2, alt: "Schaubild 2 - Strafrecht Struktur" },
+  { id: 3, src: bild3, alt: "Schaubild 3 - Tatbestandsmäßigkeit" },
+  { id: 4, src: bild4, alt: "Schaubild 4 - Betrugsschema" },
+  { id: 5, src: bild5, alt: "Schaubild 5 - Prüfungsschema" },
+  { id: 6, src: bild6, alt: "Schaubild 6 - Vermögensdelikte" },
+  { id: 7, src: bild7, alt: "Schaubild 7 - Tatbestände" },
+  { id: 8, src: bild13, alt: "Schaubild 8 - Übersicht" },
+  { id: 9, src: bild14, alt: "Schaubild 9 - Struktur" },
 ];
 
 const ImageCarousel = () => {
@@ -61,13 +71,12 @@ const ImageCarousel = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {carouselSlides.map((slide) => (
                 <CarouselItem key={slide.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="aspect-[4/3] bg-card border-2 border-border rounded-xl flex flex-col items-center justify-center p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <ImageIcon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-primary text-center mb-2">{slide.title}</h3>
-                    <p className="text-xs text-muted-foreground text-center">{slide.description}</p>
-                    <span className="text-xs text-secondary mt-3 font-medium">[Bild-Platzhalter]</span>
+                  <div className="bg-card border-2 border-border rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className="w-full h-auto object-contain"
+                    />
                   </div>
                 </CarouselItem>
               ))}
