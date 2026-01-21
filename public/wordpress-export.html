@@ -26,6 +26,54 @@
       --foreground: #074554;
     }
 
+    /* ===== FIXED ORDER BUTTON ===== */
+    .drw-fixed-order-btn {
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: var(--secondary) !important;
+      color: var(--secondary-foreground) !important;
+      padding: 14px 24px !important;
+      border-radius: 50px !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 20px rgba(238, 161, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+      transition: all 0.3s ease !important;
+      cursor: pointer !important;
+      border: none !important;
+    }
+
+    .drw-fixed-order-btn:hover {
+      background: #d99200 !important;
+      transform: translateY(-2px) scale(1.02) !important;
+      box-shadow: 0 6px 25px rgba(238, 161, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .drw-fixed-order-btn svg {
+      width: 20px !important;
+      height: 20px !important;
+      flex-shrink: 0 !important;
+    }
+
+    @media (max-width: 768px) {
+      .drw-fixed-order-btn {
+        bottom: 16px !important;
+        right: 16px !important;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+      }
+      
+      .drw-fixed-order-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+
     html, body {
       width: 100%;
       max-width: 100%;
@@ -1552,6 +1600,20 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 </script>
+
+<!-- ===== FIXED ORDER BUTTON ===== -->
+<a href="https://dr-woeller.de/checkout/?add-to-cart=9446" 
+   class="drw-fixed-order-btn" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 999999 !important; display: flex !important; align-items: center !important; gap: 8px !important; background: #eea100 !important; color: #074554 !important; padding: 14px 24px !important; border-radius: 50px !important; font-size: 1rem !important; font-weight: 700 !important; text-decoration: none !important; box-shadow: 0 4px 20px rgba(238, 161, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.15) !important;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8" cy="21" r="1"></circle>
+    <circle cx="19" cy="21" r="1"></circle>
+    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+  </svg>
+  Jetzt bestellen
+</a>
 
 </body>
 </html>
