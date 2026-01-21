@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Woeller - Grundkurs Strafrecht 2026</title>
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Design Tokens */
+    :root {
+      --primary: #074554;
+      --primary-foreground: #ffffff;
+      --secondary: #eea100;
+      --secondary-foreground: #074554;
+      --background: #ffffff;
+      --muted: #f5f7f7;
+      --muted-foreground: #5a6b6f;
+      --border: #d1dde0;
+      --card: #ffffff;
+      --foreground: #074554;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background: var(--background);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(238,161,0,0.2), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .hero-quote {
+      border-left: 4px solid var(--secondary);
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .hero-cta-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero-cta-box {
+      background: rgba(238,161,0,0.2);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .hero-cta-box p {
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .hero-image-placeholder {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-box {
+      width: 280px;
+      height: 350px;
+      background: rgba(255,255,255,0.1);
+      border: 4px solid rgba(238,161,0,0.5);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .hero-image-box::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 4rem;
+      height: 4rem;
+      background: var(--secondary);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .hero-avatar {
+      width: 6rem;
+      height: 6rem;
+      background: rgba(238,161,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar svg {
+      width: 3rem;
+      height: 3rem;
+      color: var(--secondary);
+    }
+
+    /* ===== CAROUSEL SECTION ===== */
+    .carousel-section {
+      background: var(--muted);
+      padding: 4rem 1rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--muted-foreground);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .carousel-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ===== TESTIMONIAL HIGHLIGHT ===== */
+    .testimonial-highlight {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .testimonial-icon {
+      width: 4rem;
+      height: 4rem;
+      background: rgba(238,161,0,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .testimonial-quote {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .testimonial-quote {
+        font-size: 2.5rem;
+      }
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(238,161,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .star {
+      color: var(--secondary);
+      font-size: 1.5rem;
+    }
+
+    /* ===== COURSE OVERVIEW ===== */
+    .course-overview {
+      background: var(--background);
+      padding: 4rem 1rem;
+    }
+
+    .course-overview img {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    /* ===== MODULES SECTION ===== */
+    .modules-section {
+      background: var(--background);
+      padding: 4rem 1rem;
+    }
+
+    .modules-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .modules-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .modules-header h2 span {
+      color: var(--secondary);
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .modules-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .module-card {
+      background: var(--primary);
+      border: 4px solid var(--secondary);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .module-header {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .module-header h3 {
+      color: var(--primary-foreground);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .module-header p {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .module-topics {
+      padding: 1rem;
+    }
+
+    .module-topics ol {
+      list-style: none;
+    }
+
+    .module-topics li {
+      color: var(--primary-foreground);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .module-topics li span:first-child {
+      color: var(--secondary);
+      font-weight: 600;
+      min-width: 20px;
+    }
+
+    .info-boxes {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .info-box {
+      background: var(--muted);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-box strong {
+      color: var(--secondary);
+    }
+
+    /* ===== COUNTDOWN SECTION ===== */
+    .countdown-section {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .countdown-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(238,161,0,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+    }
+
+    .countdown-badge span {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .countdown-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      .countdown-title {
+        font-size: 2rem;
+      }
+    }
+
+    .countdown-timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .countdown-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 0.75rem;
+      padding: 1.5rem 1rem;
+    }
+
+    .countdown-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    @media (min-width: 768px) {
+      .countdown-value {
+        font-size: 3.5rem;
+      }
+    }
+
+    .countdown-label {
+      font-size: 0.875rem;
+      opacity: 0.75;
+    }
+
+    .why-course {
+      background: rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .why-course h3 {
+      color: var(--secondary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-course ul {
+      list-style: none;
+    }
+
+    .why-course li {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .why-course li span:first-child {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .why-course strong {
+      color: var(--secondary);
+    }
+
+    .why-course-footer {
+      text-align: center;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+
+    .pricing-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .pricing-box p {
+      margin-bottom: 1rem;
+    }
+
+    .price-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-old {
+      font-size: 1.5rem;
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .price-new {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .order-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .order-button:hover {
+      opacity: 0.9;
+    }
+
+    .benefits-list {
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    .benefits-list > div {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefits-list span:first-child {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .benefits-list strong {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    .benefits-list a {
+      color: var(--secondary);
+    }
+
+    .trust-elements {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      opacity: 0.75;
+    }
+
+    /* ===== VIDEO SECTION ===== */
+    .video-section {
+      background: var(--background);
+      padding: 4rem 1rem;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .video-placeholder {
+      aspect-ratio: 16/9;
+      background: var(--muted);
+      border: 4px solid rgba(7,69,84,0.2);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .play-button {
+      width: 5rem;
+      height: 5rem;
+      background: var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .play-button svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--secondary-foreground);
+      margin-left: 0.25rem;
+    }
+
+    /* ===== TESTIMONIALS BUBBLES ===== */
+    .testimonials-section {
+      background: var(--muted);
+      padding: 5rem 1rem;
+    }
+
+    .bubbles-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .bubble {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, var(--primary), rgba(7,69,84,0.85));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      border: 2px solid rgba(238,161,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    @media (min-width: 768px) {
+      .bubble {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    .bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 50px rgba(238,161,0,0.3);
+    }
+
+    .bubble p {
+      color: var(--secondary);
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      .bubble p {
+        font-size: 1rem;
+      }
+    }
+
+    /* ===== UTILITIES ===== */
+    .text-center {
+      text-align: center;
+    }
+
+    .text-secondary {
+      color: var(--secondary);
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <span class="hero-badge">+++ Multisensorisches Lernen +++</span>
+      <h1>Strafrecht ist das einfachste Rechtsgebiet, wenn du es richtig lernst!</h1>
+      <blockquote class="hero-quote">
+        "Ich verstehe ehrlich gesagt nicht, wie man Strafrecht noch anders lernen kann – insbesondere, wie man den Stoff ohne dieses Konzept des Lernens mit Schaubildern, Hörbüchern und Videos abspeichern soll. Es ist quasi ein Rundum-Paket, welches dir Schritt für Schritt erklärt, wie du den Stoff strukturiert lernst und auch verstehst!"
+      </blockquote>
+      <p style="font-size: 0.875rem; opacity: 0.75;">— Erfahrungsbericht aus dem Grundkurs</p>
+      <div class="hero-cta-boxes">
+        <div class="hero-cta-box">
+          <p>Kursstart: 01.03.2026</p>
+        </div>
+        <div class="hero-cta-box">
+          <p>Begrenzte Teilnehmerzahl!</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-placeholder">
+      <div class="hero-image-box">
+        <div class="hero-avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div style="text-align: center; padding: 0 1rem;">
+          <p style="font-weight: 600; font-size: 1.1rem;">Dr. Peter Woeller</p>
+          <p style="font-size: 0.875rem; opacity: 0.75;">[Bild-Platzhalter]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAROUSEL SECTION ===== -->
+<section class="carousel-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Visuell-konnektives Lernen</h2>
+      <p>Entdecke die einzigartige Lernmethode mit über 100 professionellen Schaubildern, die komplexe Zusammenhänge verständlich machen.</p>
+    </div>
+    <div class="carousel-container">
+      <!-- HINWEIS: Ersetze diese Platzhalter mit deinen Bild-URLs aus WordPress Media Library -->
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_1" alt="Schaubild 1">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_2" alt="Schaubild 2">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_3" alt="Schaubild 3">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_4" alt="Schaubild 4">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_5" alt="Schaubild 5">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_6" alt="Schaubild 6">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_7" alt="Schaubild 7">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_8" alt="Schaubild 8">
+      </div>
+      <div class="carousel-item">
+        <img src="DEINE_BILD_URL_9" alt="Schaubild 9">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL HIGHLIGHT ===== -->
+<section class="testimonial-highlight">
+  <div class="container">
+    <div class="testimonial-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#eea100" stroke-width="2">
+        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21"></path>
+        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+      </svg>
+    </div>
+    <p class="testimonial-quote">„Ich habe das Strafrecht endlich verstanden!"</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">YS</div>
+      <div style="text-align: left;">
+        <p style="font-weight: 600;">Yasmin S.</p>
+        <p style="font-size: 0.875rem; opacity: 0.75;">Jena</p>
+      </div>
+    </div>
+    <div class="stars">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COURSE OVERVIEW ===== -->
+<section class="course-overview">
+  <div class="container">
+    <!-- HINWEIS: Ersetze diese URL mit deiner Bild-URL aus WordPress Media Library -->
+    <img src="DEINE_GRUNDKURS_OVERVIEW_BILD_URL" alt="Dr. Woeller - Grundkurs Strafrecht 2026: Übersicht der Handouts, Clips und Testfragen">
+  </div>
+</section>
+
+<!-- ===== MODULES SECTION ===== -->
+<section class="modules-section">
+  <div class="container">
+    <div class="modules-header">
+      <h2>NEU: Strafrecht AT und BT in <span>4 Modulen</span></h2>
+      <p style="color: var(--muted-foreground); margin-top: 1rem;">Neues Lernen: Mit System & unserer visuell-konnektiven Lernmethode:</p>
+    </div>
+
+    <div class="modules-grid">
+      <!-- Modul 1 -->
+      <div class="module-card">
+        <div class="module-header">
+          <h3>Strafrecht AT I</h3>
+          <p>Modul 1</p>
+        </div>
+        <div class="module-topics">
+          <ol>
+            <li><span>1.</span><span>Grundlagen des Strafrechts</span></li>
+            <li><span>2.</span><span>Das vorsätzliche vollendete Begehungsdelikt</span></li>
+            <li><span>3.</span><span>Kausalität & Objektive Zurechnung</span></li>
+            <li><span>4.</span><span>Vorsatz</span></li>
+            <li><span>5.</span><span>Rechtswidrigkeit</span></li>
+            <li><span>6.</span><span>Schuld</span></li>
+            <li><span>7.</span><span>Fahrlässigkeitstat</span></li>
+            <li><span>8.</span><span>Erfolgsqualifikation</span></li>
+            <li><span>9.</span><span>Unterlassungstat</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Modul 2 -->
+      <div class="module-card">
+        <div class="module-header">
+          <h3>Strafrecht AT II</h3>
+          <p>Modul 2</p>
+        </div>
+        <div class="module-topics">
+          <ol>
+            <li><span>1.</span><span>Versuch – Systematik</span></li>
+            <li><span>2.</span><span>Tatentschluss &</span></li>
+            <li><span>3.</span><span>Unmittelbares Ansetzen</span></li>
+            <li><span>4.</span><span>Rücktritt</span></li>
+            <li><span>5.</span><span>Mittäterschaft</span></li>
+            <li><span>6.</span><span>Mittelbare Täterschaft</span></li>
+            <li><span>7.</span><span>Anstiftung</span></li>
+            <li><span>8.</span><span>Beihilfe</span></li>
+            <li><span>9.</span><span>Irrtümer</span></li>
+            <li><span>10.</span><span>Konkurrenzen</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Modul 3 -->
+      <div class="module-card">
+        <div class="module-header">
+          <h3>Strafrecht BT I</h3>
+          <p>Modul 3</p>
+        </div>
+        <div class="module-topics">
+          <ol>
+            <li><span>1.</span><span>Diebstahl (Regelbeispiele & Qualifikationen)</span></li>
+            <li><span>2.</span><span>Unterschlagung</span></li>
+            <li><span>3.</span><span>Betrug</span></li>
+            <li><span>4.</span><span>Computerbetrug</span></li>
+            <li><span>5.</span><span>Raub</span></li>
+            <li><span>6.</span><span>Räuberischer Diebstahl</span></li>
+            <li><span>7.</span><span>(Räuberische) Erpressung</span></li>
+            <li><span>8.</span><span>Sachbeschädigung</span></li>
+            <li><span>9.</span><span>Hehlerei</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Modul 4 -->
+      <div class="module-card">
+        <div class="module-header">
+          <h3>Strafrecht BT II</h3>
+          <p>Modul 4</p>
+        </div>
+        <div class="module-topics">
+          <ol>
+            <li><span>1.</span><span>Straftaten gegen das Leben – Systematik</span></li>
+            <li><span>2.</span><span>Mord & Totschlag</span></li>
+            <li><span>3.</span><span>Sterbehilfe</span></li>
+            <li><span>4.</span><span>Körperverletzungsdelikte</span></li>
+            <li><span>5.</span><span>Nötigung</span></li>
+            <li><span>6.</span><span>Beleidigungsdelikte</span></li>
+            <li><span>7.</span><span>Urkundenfälschung</span></li>
+            <li><span>8.</span><span>Brandstiftungsdelikte</span></li>
+            <li><span>9.</span><span>Straßenverkehrsdelikte</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-boxes">
+      <div class="info-box">
+        <p><strong>Effektive Lernstrategie:</strong> Im Grundkurs 2026 kombinieren wir unsere neue <strong style="color: var(--foreground);">Lernstrategie</strong> mit unserem modularen <strong style="color: var(--foreground);">Erfolgssystem!</strong></p>
+      </div>
+      <div class="info-box">
+        <p><strong>Vermeide Fehlerquellen!</strong> Als langjähriger Korrektor fiel mir schnell auf, dass Studenten oft dieselben Fehler machen. Dies vermeidest du v.a. durch <strong style="color: var(--foreground);">Systemwissen & Strukturverständnis</strong> als deine wichtigsten Schlüssel zur Prädikatsklausur. Gute Juristen sind nicht unbedingt intelligenter, aber sie lernen jedenfalls effizienter!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COUNTDOWN SECTION ===== -->
+<section class="countdown-section">
+  <div class="container">
+    <div class="countdown-badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#eea100" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Begrenzte Teilnehmerzahl & ermäßigte Kursgebühr</span>
+    </div>
+
+    <h2 class="countdown-title">Begrenzte Teilnehmerzahl & aktuell ermäßigte Kursgebühr für kurzen Zeitraum – melde dich bitte frühzeitig an</h2>
+
+    <div class="countdown-timer">
+      <div class="countdown-item">
+        <div class="countdown-value" id="days">00</div>
+        <div class="countdown-label">Tage</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">00</div>
+        <div class="countdown-label">Stunden</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">00</div>
+        <div class="countdown-label">Minuten</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">00</div>
+        <div class="countdown-label">Sekunden</div>
+      </div>
+    </div>
+
+    <div class="why-course">
+      <h3>Warum dieser Kurs für dich (in jeder Lernphase) wichtig ist:</h3>
+      <ul>
+        <li>
+          <span>•</span>
+          <span>Kennst du das Geheimnis der <strong>Prädikatsklausur</strong>, d.h. den Unterschied zwischen Einzelwissen, Systemwissen & Strukturverständnis?</span>
+        </li>
+        <li>
+          <span>•</span>
+          <span>Warum schöpfen so viele Studenten ihr <strong>Lernpotential</strong> immer noch nicht aus?</span>
+        </li>
+        <li>
+          <span>•</span>
+          <span>Was passiert, wenn die <strong>effizienteste</strong> und ganz nebenbei <strong>modernste Lerntechnik</strong> in unser bewährtes <strong>modulares Erfolgssystem</strong> integriert wird?</span>
+        </li>
+      </ul>
+      <p class="why-course-footer">Wir erklären es dir in unserem Info-Clip und in weniger als 10 Minuten!</p>
+    </div>
+
+    <div class="pricing-box">
+      <p>Sonderpreis für Frühbucher:</p>
+      <div class="price-display">
+        <span class="price-old">249 €</span>
+        <span class="price-new">189 €</span>
+      </div>
+      <p style="font-size: 0.875rem; opacity: 0.75; margin-bottom: 1.5rem;">Einmalzahlung • Lebenslanger Zugang • Sofort verfügbar nach Kursstart</p>
+
+      <!-- HINWEIS: Ersetze # mit deinem WooCommerce-Produktlink -->
+      <a href="#" class="order-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        Kostenpflichtig bestellen
+      </a>
+
+      <div class="benefits-list">
+        <div>
+          <span>•</span>
+          <span><strong>Fair & transparent</strong>: Du erhältst <u>6 Monate</u> unbeschränkten Zugang auf alle Clips.</span>
+        </div>
+        <div>
+          <span>•</span>
+          <span><strong>Aktuelle Lernmittel</strong>: Erhalte vor Kursbeginn (Start 01. März 2026) unsere umfassenden Handouts & Testfragen <u>kostenlos</u>.</span>
+        </div>
+        <div>
+          <span>•</span>
+          <span><strong>Wir sind für dich da</strong>: Du hast Probleme oder Fragen: <a href="mailto:info@dr-woeller.de">info@dr-woeller.de</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-elements">
+      <span>✓ Sichere Bezahlung</span>
+      <span>✓ 14 Tage Widerrufsrecht</span>
+      <span>✓ Sofort-Zugang nach Kursstart</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO SECTION ===== -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Kennst du das Geheimnis der Prädikatsklausur?</h2>
+      <p style="font-size: 1.25rem;">Ich erkläre es dir in weniger als 10 Minuten</p>
+    </div>
+    <div class="video-container">
+      <div class="video-placeholder">
+        <div class="play-button">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <p style="color: var(--primary); font-weight: 600;">Video-Platzhalter</p>
+        <p style="font-size: 0.875rem; color: var(--muted-foreground);">[Hier wird dein Erklärvideo eingebettet]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS BUBBLES ===== -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Was Teilnehmer sagen</h2>
+    </div>
+    <div class="bubbles-row">
+      <div class="bubble"><p>„Ich habe das Strafrecht endlich verstanden"</p></div>
+      <div class="bubble"><p>„Hohes Lernniveau"</p></div>
+      <div class="bubble"><p>„Ausführlich & umfassend"</p></div>
+    </div>
+    <div class="bubbles-row">
+      <div class="bubble"><p>„Es gibt nichts Besseres im Strafrecht"</p></div>
+      <div class="bubble"><p>„Die Clips erwecken die Schaubilder zum Leben"</p></div>
+      <div class="bubble"><p>„Die beste Investition in mein Jurastudium"</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COUNTDOWN SCRIPT ===== -->
+<script>
+  // Target date: March 1, 2026
+  const targetDate = new Date("2026-03-01T00:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
