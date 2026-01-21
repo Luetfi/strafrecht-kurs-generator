@@ -1865,15 +1865,15 @@
     }
   });
 
-  // Auto-scroll every 4 seconds
-  let drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+  // Auto-scroll every 2.5 seconds
+  let drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 2500);
 
   // Pause auto-scroll on hover
   drwCarousel.addEventListener('mouseenter', function() { 
     clearInterval(drwAutoScrollInterval); 
   });
   drwCarousel.addEventListener('mouseleave', function() {
-    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 2500);
   });
 
   // ===== LIGHTBOX FUNCTIONS =====
@@ -1890,7 +1890,7 @@
     drwLightbox.classList.remove('drw-open');
     document.body.style.overflow = '';
     // Resume carousel auto-scroll
-    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 2500);
   };
 
   window.drwLightboxNav = function(direction) {
