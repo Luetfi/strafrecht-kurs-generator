@@ -6,7 +6,6 @@ import ModulesSection from "@/components/landing/ModulesSection";
 import CountdownSection from "@/components/landing/CountdownSection";
 import VideoSection from "@/components/landing/VideoSection";
 import TestimonialsGrid from "@/components/landing/TestimonialsGrid";
-import FooterCTA from "@/components/landing/FooterCTA";
 
 const Index = () => {
   return (
@@ -34,9 +33,6 @@ const Index = () => {
       
       {/* 8. Weitere Testimonials */}
       <TestimonialsGrid />
-      
-      {/* 9. Footer mit CTA */}
-      <FooterCTA />
     </main>
   );
 };
