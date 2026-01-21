@@ -85,7 +85,7 @@ const ModulesSection = () => {
           {modules.map((module) => (
             <div
               key={module.id}
-              className="bg-primary rounded-xl overflow-hidden shadow-lg"
+              className="bg-primary rounded-xl overflow-hidden shadow-lg border-4 border-secondary"
             >
               {/* Module Header */}
               <div className="bg-primary px-4 py-4 text-center border-b border-primary-foreground/20">
@@ -111,9 +111,6 @@ const ModulesSection = () => {
                   ))}
                 </ol>
               </div>
-
-              {/* Gold Bottom Border */}
-              <div className="h-1.5 bg-secondary" />
             </div>
           ))}
         </div>
