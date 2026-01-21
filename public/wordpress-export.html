@@ -228,6 +228,132 @@
       transform: scale(1.2) !important;
     }
 
+    /* Make carousel images clickable */
+    .drw-carousel-item {
+      cursor: pointer !important;
+    }
+
+    /* ===== LIGHTBOX STYLES ===== */
+    .drw-lightbox {
+      display: none !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(0, 0, 0, 0.95) !important;
+      z-index: 99999 !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 2rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .drw-lightbox.drw-open {
+      display: flex !important;
+    }
+
+    .drw-lightbox-content {
+      position: relative !important;
+      max-width: 95vw !important;
+      max-height: 90vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+    .drw-lightbox-image {
+      max-width: 100% !important;
+      max-height: 85vh !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border-radius: 0.5rem !important;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .drw-lightbox-close {
+      position: absolute !important;
+      top: -50px !important;
+      right: 0 !important;
+      width: 44px !important;
+      height: 44px !important;
+      background: var(--primary) !important;
+      border: 2px solid var(--secondary) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: background 0.3s, transform 0.3s !important;
+      z-index: 100000 !important;
+    }
+
+    .drw-lightbox-close:hover {
+      background: var(--secondary) !important;
+      transform: scale(1.1) !important;
+    }
+
+    .drw-lightbox-close svg {
+      width: 24px !important;
+      height: 24px !important;
+      stroke: var(--secondary) !important;
+      stroke-width: 2 !important;
+    }
+
+    .drw-lightbox-close:hover svg {
+      stroke: var(--primary) !important;
+    }
+
+    .drw-lightbox-nav {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 56px !important;
+      height: 56px !important;
+      background: var(--primary) !important;
+      border: 2px solid var(--secondary) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: background 0.3s, transform 0.3s !important;
+      z-index: 100000 !important;
+    }
+
+    .drw-lightbox-nav:hover {
+      background: var(--secondary) !important;
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    .drw-lightbox-nav svg {
+      width: 28px !important;
+      height: 28px !important;
+      stroke: var(--secondary) !important;
+      stroke-width: 2 !important;
+      fill: none !important;
+    }
+
+    .drw-lightbox-nav:hover svg {
+      stroke: var(--primary) !important;
+    }
+
+    .drw-lightbox-prev {
+      left: 1rem !important;
+    }
+
+    .drw-lightbox-next {
+      right: 1rem !important;
+    }
+
+    .drw-lightbox-counter {
+      color: #fff !important;
+      font-size: 1rem !important;
+      margin-top: 1rem !important;
+      opacity: 0.8 !important;
+    }
+
     @media (max-width: 768px) {
       .drw-carousel-wrapper {
         padding: 0 50px !important;
@@ -251,6 +377,27 @@
 
       .drw-carousel-item img {
         max-height: 180px !important;
+      }
+
+      .drw-lightbox-nav {
+        width: 44px !important;
+        height: 44px !important;
+      }
+
+      .drw-lightbox-nav svg {
+        width: 22px !important;
+        height: 22px !important;
+      }
+
+      .drw-lightbox-close {
+        top: -40px !important;
+        width: 36px !important;
+        height: 36px !important;
+      }
+
+      .drw-lightbox-close svg {
+        width: 20px !important;
+        height: 20px !important;
       }
     }
 
@@ -905,6 +1052,23 @@
   </div>
 </section>
 
+<!-- ===== LIGHTBOX MODAL ===== -->
+<div class="drw-lightbox" id="drwLightbox">
+  <button class="drw-lightbox-nav drw-lightbox-prev" onclick="drwLightboxNav(-1)" aria-label="Vorheriges Bild">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <div class="drw-lightbox-content">
+    <button class="drw-lightbox-close" onclick="drwCloseLightbox()" aria-label="Schließen">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <img class="drw-lightbox-image" id="drwLightboxImage" src="" alt="Großansicht">
+    <div class="drw-lightbox-counter" id="drwLightboxCounter"></div>
+  </div>
+  <button class="drw-lightbox-nav drw-lightbox-next" onclick="drwLightboxNav(1)" aria-label="Nächstes Bild">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
+
 <!-- ===== TESTIMONIAL HIGHLIGHT ===== -->
 <section class="testimonial-highlight">
   <div class="container">
@@ -1101,12 +1265,15 @@
   </div>
 </section>
 
-<!-- ===== CAROUSEL SCRIPT ===== -->
+<!-- ===== CAROUSEL & LIGHTBOX SCRIPT ===== -->
 <script>
 (function() {
   // Carousel functionality - wrapped in IIFE to avoid global conflicts
   const drwCarousel = document.getElementById('drwSchaubildCarousel');
   const drwDotsContainer = document.getElementById('drwCarouselDots');
+  const drwLightbox = document.getElementById('drwLightbox');
+  const drwLightboxImage = document.getElementById('drwLightboxImage');
+  const drwLightboxCounter = document.getElementById('drwLightboxCounter');
   
   if (!drwCarousel || !drwDotsContainer) {
     console.error('Carousel elements not found');
@@ -1114,8 +1281,10 @@
   }
   
   const drwItems = drwCarousel.querySelectorAll('.drw-carousel-item');
+  const drwImages = drwCarousel.querySelectorAll('.drw-carousel-item img');
   const drwItemWidth = 316; // 300px + 16px gap
   let drwCurrentIndex = 0;
+  let drwLightboxIndex = 0;
 
   // Create dots
   drwItems.forEach(function(_, index) {
@@ -1124,6 +1293,13 @@
     if (index === 0) dot.classList.add('drw-active');
     dot.addEventListener('click', function() { drwScrollToIndex(index); });
     drwDotsContainer.appendChild(dot);
+  });
+
+  // Add click handlers to open lightbox
+  drwImages.forEach(function(img, index) {
+    img.addEventListener('click', function() {
+      drwOpenLightbox(index);
+    });
   });
 
   // Make scroll function globally accessible for onclick
@@ -1176,6 +1352,60 @@
   });
   drwCarousel.addEventListener('mouseleave', function() {
     drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+  });
+
+  // ===== LIGHTBOX FUNCTIONS =====
+  function drwOpenLightbox(index) {
+    drwLightboxIndex = index;
+    drwUpdateLightboxImage();
+    drwLightbox.classList.add('drw-open');
+    document.body.style.overflow = 'hidden';
+    // Pause carousel auto-scroll when lightbox is open
+    clearInterval(drwAutoScrollInterval);
+  }
+
+  window.drwCloseLightbox = function() {
+    drwLightbox.classList.remove('drw-open');
+    document.body.style.overflow = '';
+    // Resume carousel auto-scroll
+    drwAutoScrollInterval = setInterval(function() { window.drwScrollCarousel(1); }, 4000);
+  };
+
+  window.drwLightboxNav = function(direction) {
+    const maxIndex = drwImages.length - 1;
+    drwLightboxIndex += direction;
+    
+    if (drwLightboxIndex < 0) drwLightboxIndex = maxIndex;
+    if (drwLightboxIndex > maxIndex) drwLightboxIndex = 0;
+    
+    drwUpdateLightboxImage();
+  };
+
+  function drwUpdateLightboxImage() {
+    const img = drwImages[drwLightboxIndex];
+    drwLightboxImage.src = img.src;
+    drwLightboxImage.alt = img.alt;
+    drwLightboxCounter.textContent = (drwLightboxIndex + 1) + ' / ' + drwImages.length;
+  }
+
+  // Close lightbox on background click
+  drwLightbox.addEventListener('click', function(e) {
+    if (e.target === drwLightbox) {
+      window.drwCloseLightbox();
+    }
+  });
+
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (!drwLightbox.classList.contains('drw-open')) return;
+    
+    if (e.key === 'Escape') {
+      window.drwCloseLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      window.drwLightboxNav(-1);
+    } else if (e.key === 'ArrowRight') {
+      window.drwLightboxNav(1);
+    }
   });
 })();
 </script>
