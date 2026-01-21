@@ -41,24 +41,6 @@ const VideoSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Video Description */}
-          <div className="mt-8 grid md:grid-cols-2 gap-6">
-            <div className="bg-muted rounded-xl p-6">
-              <h3 className="font-bold text-primary mb-3">Das Problem:</h3>
-              <p className="text-muted-foreground">
-                Die meisten Studierenden lernen <strong>Einzelwissen</strong> – 
-                isolierte Definitionen und Schemata ohne Zusammenhang.
-              </p>
-            </div>
-            <div className="bg-secondary/10 rounded-xl p-6">
-              <h3 className="font-bold text-primary mb-3">Die Lösung:</h3>
-              <p className="text-muted-foreground">
-                <strong>Systemwissen & Strukturverständnis</strong> – 
-                Zusammenhänge erkennen und Wissen nachhaltig verankern.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
