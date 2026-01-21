@@ -78,6 +78,36 @@ const CountdownSection = () => {
             ))}
           </div>
 
+          {/* Why This Course Section */}
+          <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 mb-8 text-left">
+            <h3 className="text-xl md:text-2xl font-bold text-secondary mb-6">
+              Warum dieser Kurs für dich (in jeder Lernphase) wichtig ist:
+            </h3>
+            <ul className="space-y-4 mb-6">
+              <li className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  Kennst du das Geheimnis der <strong className="text-secondary">Prädikatsklausur</strong>, d.h. den Unterschied zwischen Einzelwissen, Systemwissen & Strukturverständnis?
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  Warum schöpfen so viele Studenten ihr <strong className="text-secondary">Lernpotential</strong> immer noch nicht aus?
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  Was passiert, wenn die <strong className="text-secondary">effizienteste</strong> und ganz nebenbei <strong className="text-secondary">modernste Lerntechnik</strong> in unser bewährtes <strong className="text-secondary">modulares Erfolgssystem</strong> integriert wird?
+                </span>
+              </li>
+            </ul>
+            <p className="text-secondary font-semibold text-center">
+              Wir erklären es dir in unserem Info-Clip und in weniger als 10 Minuten!
+            </p>
+          </div>
+
           {/* Pricing */}
           <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
             <p className="text-lg mb-4">Sonderpreis für Frühbucher:</p>
