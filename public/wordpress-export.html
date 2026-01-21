@@ -750,15 +750,42 @@
 
     @media (max-width: 600px) {
       .countdown-timer {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        max-width: 320px;
-        margin: 0 auto 2rem;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+        max-width: 280px !important;
+        margin: 0 auto 2rem !important;
       }
+      
       .countdown-item {
-        padding: 1rem 0.5rem;
+        padding: 0.75rem 0.5rem !important;
+        border-radius: 0.5rem !important;
       }
-    }
+      
+      .countdown-value {
+        font-size: 1.75rem !important;
+      }
+      
+      .countdown-label {
+        font-size: 0.7rem !important;
+      }
+      
+      .countdown-title {
+        font-size: 1.1rem !important;
+        padding: 0 0.5rem !important;
+      }
+      
+      .countdown-badge {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.75rem !important;
+      }
+      
+      .countdown-badge span {
+        font-size: 0.8rem !important;
+      }
+      
+      .countdown-section {
+        padding: 2.5rem 1rem !important;
+      }
     }
 
     .countdown-item {
@@ -836,16 +863,60 @@
 
     @media (max-width: 600px) {
       .pricing-box {
-        max-width: 100%;
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border-radius: 0.5rem;
-        padding: 1.2rem 0.5rem;
-        box-sizing: border-box;
-        display: block;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0.75rem !important;
+        padding: 1.25rem 1rem !important;
+        box-sizing: border-box !important;
       }
-    }
+      
+      .price-display {
+        flex-direction: row !important;
+        gap: 0.75rem !important;
+      }
+      
+      .price-old {
+        font-size: 1.1rem !important;
+      }
+      
+      .price-new {
+        font-size: 2.5rem !important;
+      }
+      
+      .order-button {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      
+      .why-course {
+        padding: 1.25rem !important;
+        border-radius: 0.75rem !important;
+      }
+      
+      .why-course h3 {
+        font-size: 1.1rem !important;
+      }
+      
+      .why-course li {
+        font-size: 0.9rem !important;
+      }
+      
+      .why-course-footer {
+        font-size: 0.9rem !important;
+      }
+      
+      .benefits-list {
+        font-size: 0.85rem !important;
+      }
+      
+      .trust-elements {
+        gap: 0.75rem !important;
+        font-size: 0.75rem !important;
+      }
     }
 
     .pricing-box p {
@@ -1101,6 +1172,160 @@
     @media (min-width: 768px) {
       .bubble p {
         font-size: 1rem;
+      }
+    }
+
+    /* ===== COMPREHENSIVE MOBILE OPTIMIZATIONS ===== */
+    @media (max-width: 600px) {
+      /* General Section Padding */
+      .drw-carousel-section,
+      .modules-section,
+      .course-overview,
+      .video-section,
+      .testimonials-section {
+        padding: 2.5rem 1rem !important;
+      }
+      
+      /* Section Headers */
+      .drw-section-header h2,
+      .modules-header h2,
+      .video-section .section-header h2,
+      .testimonials-section .section-header h2 {
+        font-size: 1.4rem !important;
+        line-height: 1.3 !important;
+      }
+      
+      .drw-section-header p,
+      .video-section .section-header p,
+      .testimonials-section .section-header p {
+        font-size: 0.9rem !important;
+      }
+      
+      /* Hero Section */
+      .hero-image-section {
+        width: 100% !important;
+      }
+      
+      /* Carousel Mobile */
+      .drw-carousel-wrapper {
+        padding: 0 40px !important;
+      }
+      
+      .drw-carousel-item {
+        flex: 0 0 240px !important;
+        min-width: 240px !important;
+        max-width: 240px !important;
+        height: 200px !important;
+      }
+      
+      .drw-carousel-item img {
+        max-height: 160px !important;
+      }
+      
+      .drw-carousel-nav {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      
+      .drw-carousel-nav svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+      
+      .drw-carousel-nav.drw-prev {
+        left: 2px !important;
+      }
+      
+      .drw-carousel-nav.drw-next {
+        right: 2px !important;
+      }
+      
+      /* Testimonial Highlight */
+      .testimonial-highlight {
+        padding: 0.75rem 1rem !important;
+      }
+      
+      .testimonial-quote {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+      }
+      
+      /* Modules Section */
+      .modules-grid {
+        gap: 0.75rem !important;
+      }
+      
+      .module-card {
+        border-width: 3px !important;
+      }
+      
+      .module-header h3 {
+        font-size: 1rem !important;
+      }
+      
+      .module-topics li {
+        font-size: 0.8rem !important;
+      }
+      
+      /* Bubbles/Testimonials */
+      .bubbles-row {
+        gap: 1rem !important;
+      }
+      
+      .bubble {
+        width: 140px !important;
+        height: 140px !important;
+        padding: 1rem !important;
+      }
+      
+      .bubble p {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+      }
+      
+      /* Video Section */
+      .video-wrapper {
+        border-radius: 0.75rem !important;
+      }
+      
+      .play-button {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+      }
+      
+      .play-button svg {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+      }
+      
+      /* PDF Links */
+      .pdf-links {
+        gap: 0.75rem !important;
+        padding: 1.5rem 1rem !important;
+      }
+      
+      .pdf-link {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.85rem !important;
+      }
+      
+      /* Info Boxes */
+      .info-box {
+        padding: 1rem !important;
+        font-size: 0.9rem !important;
+      }
+      
+      /* Fixed Order Button */
+      .drw-fixed-order-btn {
+        bottom: 12px !important;
+        right: 70px !important;
+        padding: 10px 16px !important;
+        font-size: 0.85rem !important;
+      }
+      
+      .drw-fixed-order-btn svg {
+        width: 16px !important;
+        height: 16px !important;
       }
     }
 
