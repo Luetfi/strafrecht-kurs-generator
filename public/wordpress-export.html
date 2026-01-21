@@ -888,16 +888,42 @@
       margin: 0 auto;
     }
 
-    .video-placeholder {
+    .video-wrapper {
+      position: relative;
       aspect-ratio: 16/9;
-      background: var(--muted);
-      border: 4px solid rgba(7,69,84,0.2);
       border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .video-wrapper:hover .video-thumbnail {
+      transform: scale(1.02);
+    }
+
+    .video-play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .video-wrapper:hover .video-play-overlay {
+      background: rgba(0,0,0,0.3);
     }
 
     .play-button {
@@ -909,7 +935,13 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .video-wrapper:hover .play-button {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
     }
 
     .play-button svg {
@@ -917,6 +949,20 @@
       height: 2.5rem;
       color: var(--secondary-foreground);
       margin-left: 0.25rem;
+    }
+
+    .video-iframe-container {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .video-iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ===== TESTIMONIALS BUBBLES ===== */
@@ -1269,14 +1315,15 @@
       <p style="font-size: 1.25rem;">Ich erkläre es dir in weniger als 10 Minuten</p>
     </div>
     <div class="video-container">
-      <div class="video-placeholder">
-        <div class="play-button">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
+      <div class="video-wrapper" id="drwVideoWrapper" onclick="drwPlayVideo()">
+        <img src="https://dr-woeller.de/wp-content/uploads/2026/01/Thumbnail.png" alt="Video Thumbnail - Kennst du das Geheimnis der Prädikatsklausur?" class="video-thumbnail">
+        <div class="video-play-overlay">
+          <div class="play-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
         </div>
-        <p style="color: var(--primary); font-weight: 600;">Video-Platzhalter</p>
-        <p style="font-size: 0.875rem; color: var(--muted-foreground);">[Hier wird dein Erklärvideo eingebettet]</p>
       </div>
     </div>
   </div>
@@ -1444,6 +1491,22 @@
     }
   });
 })();
+</script>
+
+<!-- ===== VIDEO PLAYER SCRIPT ===== -->
+<script>
+  // Video player functionality
+  window.drwPlayVideo = function() {
+    const wrapper = document.getElementById('drwVideoWrapper');
+    if (!wrapper) return;
+    
+    // Replace thumbnail with YouTube iframe
+    const iframe = document.createElement('div');
+    iframe.className = 'video-iframe-container';
+    iframe.innerHTML = '<iframe src="https://www.youtube.com/embed/Qa5_ikZihCk?autoplay=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    
+    wrapper.parentNode.replaceChild(iframe, wrapper);
+  };
 </script>
 
 <!-- ===== COUNTDOWN SCRIPT ===== -->
