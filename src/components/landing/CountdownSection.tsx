@@ -134,6 +134,28 @@ const CountdownSection = () => {
             <p className="text-xs mt-4 opacity-50">
               [Button-Link Platzhalter: Hier deine WooCommerce-Produktseite verlinken]
             </p>
+
+            {/* Benefits List */}
+            <div className="mt-8 text-left space-y-3">
+              <div className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  <strong className="text-secondary underline">Fair & transparent</strong>: Du erhältst <strong className="underline">6 Monate</strong> unbeschränkten Zugang auf alle Clips.
+                </span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  <strong className="text-secondary underline">Aktuelle Lernmittel</strong>: Erhalte vor Kursbeginn (Start 01. März 2026) unsere umfassenden Handouts & Testfragen <strong className="underline">kostenlos</strong>.
+                </span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-secondary font-bold">•</span>
+                <span>
+                  <strong className="text-secondary underline">Wir sind für dich da</strong>: Du hast Probleme oder Fragen: <a href="mailto:info@dr-woeller.de" className="text-secondary hover:underline">info@dr-woeller.de</a>
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Trust Elements */}
