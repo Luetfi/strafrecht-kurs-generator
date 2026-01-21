@@ -3,7 +3,6 @@ import ImageCarousel from "@/components/landing/ImageCarousel";
 import TestimonialHighlight from "@/components/landing/TestimonialHighlight";
 import CourseOverviewGrid from "@/components/landing/CourseOverviewGrid";
 import ModulesSection from "@/components/landing/ModulesSection";
-import DownloadSection from "@/components/landing/DownloadSection";
 import CountdownSection from "@/components/landing/CountdownSection";
 import VideoSection from "@/components/landing/VideoSection";
 import TestimonialsGrid from "@/components/landing/TestimonialsGrid";
@@ -26,9 +25,6 @@ const Index = () => {
       
       {/* 5. Die 4 Module */}
       <ModulesSection />
-      
-      {/* 5. Download-Bereich */}
-      <DownloadSection />
       
       {/* 6. Countdown & Preis */}
       <CountdownSection />
