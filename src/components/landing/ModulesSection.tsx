@@ -1,32 +1,5 @@
 import { BookOpen, Video, HelpCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const modules = [
-  {
-    id: 1,
-    title: "Modul 1",
-    subtitle: "Strafrecht AT I",
-    description: "Tatbestandsmäßigkeit, Vorsatz, Fahrlässigkeit",
-  },
-  {
-    id: 2,
-    title: "Modul 2",
-    subtitle: "Strafrecht AT II",
-    description: "Rechtswidrigkeit, Schuld, Irrtümer, Versuch",
-  },
-  {
-    id: 3,
-    title: "Modul 3",
-    subtitle: "Strafrecht BT I",
-    description: "Vermögensdelikte, Eigentumsdelikte",
-  },
-  {
-    id: 4,
-    title: "Modul 4",
-    subtitle: "Strafrecht BT II",
-    description: "Leben & Körper, Urkunden, Straßenverkehr",
-  },
-];
+import moduleOverviewImage from "@/assets/module-overview.png";
 
 const pillars = [
   {
@@ -63,25 +36,13 @@ const ModulesSection = () => {
           </p>
         </div>
 
-        {/* 4 Modules Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {modules.map((module) => (
-            <Card
-              key={module.id}
-              className="border-2 border-primary/20 hover:border-secondary transition-colors group"
-            >
-              <CardHeader className="text-center pb-2">
-                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-3 group-hover:bg-secondary/30 transition-colors">
-                  <span className="text-secondary font-bold text-lg">{module.id}</span>
-                </div>
-                <CardTitle className="text-primary">{module.title}</CardTitle>
-                <p className="text-secondary font-semibold">{module.subtitle}</p>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-sm text-muted-foreground">{module.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        {/* 4 Modules Image */}
+        <div className="mb-16">
+          <img
+            src={moduleOverviewImage}
+            alt="Übersicht der 4 Module: Strafrecht AT I, AT II, BT I, BT II mit detaillierten Inhalten"
+            className="w-full max-w-5xl mx-auto rounded-xl shadow-lg"
+          />
         </div>
 
         {/* 3 Pillars */}
