@@ -1,6 +1,7 @@
 import HeroSection from "@/components/landing/HeroSection";
 import ImageCarousel from "@/components/landing/ImageCarousel";
 import TestimonialHighlight from "@/components/landing/TestimonialHighlight";
+import CourseOverviewGrid from "@/components/landing/CourseOverviewGrid";
 import ModulesSection from "@/components/landing/ModulesSection";
 import DownloadSection from "@/components/landing/DownloadSection";
 import CountdownSection from "@/components/landing/CountdownSection";
@@ -20,7 +21,10 @@ const Index = () => {
       {/* 3. Testimonial Highlight */}
       <TestimonialHighlight />
       
-      {/* 4. Die 4 Module */}
+      {/* 4. Kursübersicht Grid (Handouts, Clips, Testfragen) */}
+      <CourseOverviewGrid />
+      
+      {/* 5. Die 4 Module */}
       <ModulesSection />
       
       {/* 5. Download-Bereich */}
