@@ -54,8 +54,8 @@ const CountdownSection = () => {
           </div>
 
           {/* Countdown Header */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Kursstart in:
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
+            Begrenzte Teilnehmerzahl & aktuell ermäßigte Kursgebühr für kurzen Zeitraum – melde dich bitte frühzeitig an
           </h2>
 
           {/* Countdown Timer */}
